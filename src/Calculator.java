@@ -8,10 +8,15 @@ public class Calculator {
     BinaryOperator<Integer> minus = (x, y) -> x - y;
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
     BinaryOperator<Integer> devide = (x, y) -> {
-        if (x == 0 || y == 0) {
+
+        int result = 0;
+        try {
+            result = x / y;
+
+        } catch (ArithmeticException exception) {
             System.out.println("Деление на ноль");
         }
-        return x/y;
+        return result;
     };
 
     UnaryOperator<Integer> pow = x -> x * x;
